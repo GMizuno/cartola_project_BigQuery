@@ -35,4 +35,8 @@ models:
   cartola_table:
     # Config indicated by + and applies to all files under models/example/
     staging:
+      +schema: stg_cartola
       +materialized: table
+    warehouse:
+      +materialized: table
+      +schema: dw_cartola
