@@ -36,6 +36,7 @@ with
             country,
             city,
             state,
+            logo,
             cast(reference_date as date) as reference_date,
             cast(reference_date as time) as reference_time
         from {{ ref("stg_statistics") }} st

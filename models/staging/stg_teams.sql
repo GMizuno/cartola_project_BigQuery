@@ -6,7 +6,8 @@ with
             code as short_name,
             country,
             trim(split(city, ',')[offset(0)]) as city,
-            trim(array_reverse(split(city, ','))[offset(0)]) as state
+            trim(array_reverse(split(city, ','))[offset(0)]) as state,
+            logo
         from {{ source("cartola_tbl", "teams") }}
     )
 

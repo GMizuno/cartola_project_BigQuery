@@ -9,7 +9,7 @@ with
             league_id,
             id_team_away,
             id_team_home
-        from {{ source("cartola_tbl", "fixtures") }}
+        from {{ source("cartola_tbl", "matches") }}
     )
 
 select *

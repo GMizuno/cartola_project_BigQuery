@@ -3,6 +3,6 @@ sources:
   - name: cartola_tbl
     schema: cartola
     tables:
-      - name: fixtures
+      - name: matches
       - name: statistics
       - name: teams
