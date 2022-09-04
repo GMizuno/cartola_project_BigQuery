@@ -8,10 +8,17 @@ with
             replace(rodada, 'Regular Season - ', '') as round,
             league_id,
             id_team_away,
-            id_team_home
+            id_team_home,
+            ROW_NUMBER() OVER (PARTITION BY partida_id) AS row_num
         from {{ source("cartola_tbl", "matches") }}
     )
 
-select *
+select  match_id,
+        reference_date,
+        round,
+        league_id,
+        id_team_away,
+        id_team_home
 from t1
+where row_num = 1
 

@@ -49,11 +49,30 @@ with
             ball_possession_percentage,
             passes_percentage,
             team_id,
-            match_id
+            match_id,
+            ROW_NUMBER() OVER (PARTITION BY team_id, match_id) AS row_num
         from t1
     )
 
 
-select *
+select shots_on_goal,
+            shots_off_goal,
+            total_shots,
+            blocked_shots,
+            shots_insidebox,
+            shots_outsidebox,
+            fouls,
+            corner_kicks,
+            offsides,
+            yellow_cards,
+            red_cards,
+            goalkeeper_saves,
+            total_passes,
+            passes_accurate,
+            ball_possession_percentage,
+            passes_percentage,
+            team_id,
+            match_id
 from t2
+where row_num = 1
 
